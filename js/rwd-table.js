@@ -106,7 +106,7 @@
         stickyTableHeader: true,
         fixedNavbar: '.navbar-fixed-top',  // Is there a fixed navbar? The stickyTableHeader needs to know about it!
         addDisplayAllBtn: true, // should it have a display-all button?
-        addFocusBtn: false,  // should it have a focus button?
+        addFocusBtn: true,  // should it have a focus button?
         focusBtnIcon: 'glyphicon glyphicon-screenshot'
     };
 
@@ -128,25 +128,27 @@
 
         // Focus btn
         if(this.options.addFocusBtn) {
-            // Create focus btn group
-            this.$focusGroup = $('<div class="btn-group focus-btn-group" />');
+            // // Create focus btn group
+            // this.$focusGroup = $('<div class="btn-group focus-btn-group" />');
 
-            // Create focus btn
-            this.$focusBtn = $('<button class="btn btn-default">Focus</button>');
+            // // Create focus btn
+            // this.$focusBtn = $('<button class="btn btn-default">Focus</button>');
 
-            if(this.options.focusBtnIcon) {
-                this.$focusBtn.prepend('<span class="' + this.options.focusBtnIcon + '"></span> ');
-            }
+            // if(this.options.focusBtnIcon) {
+            //     this.$focusBtn.prepend('<span class="' + this.options.focusBtnIcon + '"></span> ');
+            // }
 
-            // Add btn to group
-            this.$focusGroup.append(this.$focusBtn);
-            // Add focus btn to toolbar
-            this.$btnToolbar.append(this.$focusGroup);
+            // // Add btn to group
+            // this.$focusGroup.append(this.$focusBtn);
+            // // Add focus btn to toolbar
+            // this.$btnToolbar.append(this.$focusGroup);
 
-            // bind click on focus btn
-            this.$focusBtn.click(function(){
-                $.proxy(that.activateFocus(), that);
-            });
+            // // bind click on focus btn
+            // this.$focusBtn.click(function(){
+            //     $.proxy(that.activateFocus(), that);
+            // });
+
+            $.proxy(that.activateFocus(), that);
 
             // bind click on rows
             this.$bodyRows.click(function(){
