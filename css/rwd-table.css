@@ -218,7 +218,7 @@ table.focus-on tbody tr.unfocused td {
 }
 table.focus-on tbody tr.focused th,
 table.focus-on tbody tr.focused td {
-  background-color: #5bc0de;
+  background-color: #a5be37;
   color: #000;
 }
 table th.col-hide,
