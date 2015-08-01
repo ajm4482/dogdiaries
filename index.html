@@ -10,6 +10,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/rwd-table.min.css">
+    <link rel="stylesheet" href="css/page.css">
 
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -93,13 +94,85 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <h2>Responsive Table with RWD-Table-Patterns</h2>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="table-responsive" data-pattern="priority-columns">
+            <table summary="This table shows how to create responsive tables using RWD-Table-Patterns' functionality" class="table table-small-font table-bordered table-striped">
+              <!-- <caption class="text-center">An example of a caption</caption> -->
+              <thead>
+                <tr>
+                  <th>Country</th>
+                  <th data-priority="1">Languages</th>
+                  <th data-priority="2">Population</th>
+                  <th data-priority="3">Median Age</th>
+                  <th data-priority="4">Area (Km²)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Argentina</td>
+                  <td>Spanish (official), English, Italian, German, French</td>
+                  <td>41,803,125</td>
+                  <td>31.3</td>
+                  <td>2,780,387</td>
+                </tr>
+                <tr>
+                  <td>Australia</td>
+                  <td>English 79%, native and other languages</td>
+                  <td>23,630,169</td>
+                  <td>37.3</td>
+                  <td>7,739,983</td>
+                </tr>
+                <tr>
+                  <td>Greece</td>
+                  <td>Greek 99% (official), English, French</td>
+                  <td>11,128,404</td>
+                  <td>43.2</td>
+                  <td>131,956</td>
+                </tr>
+                <tr>
+                  <td>Luxembourg</td>
+                  <td>Luxermbourgish (national) French, German (both administrative)</td>
+                  <td>536,761</td>
+                  <td>39.1</td>
+                  <td>2,586</td>
+                </tr>
+                <tr>
+                  <td>Russia</td>
+                  <td>Russian, others</td>
+                  <td>142,467,651</td>
+                  <td>38.4</td>
+                  <td>17,076,310</td>
+                </tr>
+                <tr>
+                  <td>Sweden</td>
+                  <td>Swedish, small Sami- and Finnish-speaking minorities</td>
+                  <td>9,631,261</td>
+                  <td>41.1</td>
+                  <td>449,954</td>
+                </tr>
+              </tbody>
+             <!--  <tfoot>
+                <tr>
+                  <td colspan="5" class="text-center"> This is a 5col span row exampl</td>
+                </tr>
+              </tfoot> -->
+            </table>
+          </div><!--end of .table-responsive-->
+        </div>
+      </div>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="js/rwd-table.js"></script>
+
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/rwd-table.js"></script>
+
   </body>
 </html>
