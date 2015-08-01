@@ -1,268 +1,105 @@
 <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="utf-8"></meta>
-        <meta content="IE=edge" http-equiv="X-UA-Compatible"></meta>
-        <meta content="width=device-width, initial-scale=1" name="viewport"></meta>
-        <!--
-
-         The above 3 meta tags *must* come first in the he…
-
-        -->
-        <meta content="" name="description"></meta>
-        <meta content="" name="author"></meta>
-        <link href="../../favicon.ico" rel="icon"></link>
-        <title>
-
-            Fixed Top Navbar Example for Bootstrap
-
-        </title>
-        <!--
-
-         Bootstrap core CSS 
-
-        -->
-        <link rel="stylesheet" href="/css/bootstrap.min.css"></link>
-        <!--
-
-         Custom styles for this template 
-
-        -->
-        <link rel="stylesheet" href="navbar-fixed-top.css"></link>
-        <!--
-
-         Just for debugging purposes. Don't actually copy …
-
-        -->
-        <!--
-
-        [if lt IE 9]><script src="../../assets/js/ie8-resp…
-
-        -->
-        <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-        <!--
-
-         HTML5 shim and Respond.js for IE8 support of HTML…
-
-        -->
-        <!--
-
-        [if lt IE 9]>
-              <script src="https://oss.maxcd…
-
-        -->
-    </head>
-    <body>
-        <!--
-
-         Fixed navbar 
-
-        -->
-        <nav class="navbar navbar-default navbar-fixed-top">
-            ::before
-            <div class="container">
-                ::before
-                <div class="navbar-header">
-                    ::before
-                    <button class="navbar-toggle collapsed" aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button">
-
-        <span class="sr-only">
-
-            Toggle navigation
-
-        </span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">
-
-        Project name
-
-    </a>
-    ::after
-
-</div>
-<div id="navbar" class="navbar-collapse collapse">
-
-    ::before
-    <ul class="nav navbar-nav">
-        ::before
-        <li class="active">
-            <a href="#">
-
-                Home
-
-            </a>
-        </li>
-        <li>
-            <a href="#about">
-
-                About
-
-            </a>
-        </li>
-        <li>
-            <a href="#contact">
-
-                Contact
-
-            </a>
-        </li>
-        <li class="dropdown">
-            <a class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">
-
-    Dropdown 
-
-    <span class="caret"></span>
-
-</a>
-<ul class="dropdown-menu">
-
-                                    <li>
-                                        <a href="#">
-
-                                            Action
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-
-                                            Another action
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-
-                                            Something else here
-
-                                        </a>
-                                    </li>
-                                    <li class="divider" role="separator"></li>
-                                    <li class="dropdown-header">
-
-                                        Nav header
-
-                                    </li>
-                                    <li>
-                                        <a href="#">
-
-                                            Separated link
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-
-                                            One more separated link
-
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            ::after
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            ::before
-                            <li>
-                                <a href="../navbar/">
-
-                                    Default
-
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../navbar-static-top/">
-
-                                    Static top
-
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="./">
-
-                                    Fixed top 
-
-                                    <span class="sr-only">
-
-                                        (current)
-
-                                    </span>
-                                </a>
-                            </li>
-                            ::after
-                        </ul>
-                        ::after
-                    </div>
-                    <!--
-
-                    /.nav-collapse 
-
-                    -->
-                    ::after
-                </div>
-                ::after
-            </nav>
-            <div class="container">
-                ::before
-                <!--
-
-                 Main component for a primary marketing message or…
-
-                -->
-                <div class="jumbotron">
-                    <h1>
-
-                        Navbar example
-
-                    </h1>
-                    <p>
-
-                        This example is a quick exercise to illustrate how…
-
-                    </p>
-                    <p>
-
-                        To see the difference between static and fixed top…
-
-                    </p>
-                    <p>
-                        <a class="btn btn-lg btn-primary" role="button" href="../../components/#navbar">
-
-                            View navbar docs »
-
-                        </a>
-                    </p>
-                </div>
-                ::after
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>APA! Dog Diaries</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/rwd-table.min.css">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Dog Diaries</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+           <!--  <li><a href="#">Example of just a button with link </a></li> -->
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Special Filters <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Pick an Easy Little</a></li>
+                <li><a href="#">Pick a BOO! Little</a></li>
+                <li><a href="#">Pick a Blue Little</a></li>
+                <li><a href="#">Pick a Level2/Auth-Reqd Little</a></li>
+                <li class="divider"></li>
+                <li><a href="#">TLAC RTR Dogs</a></li>
+                <li><a href="#">TLAC non-RTR dogs</a></li>
+                <li><a href="#">CGC Trainee</a></li>
+                <li><a href="#">CGC Ready</a></li>
+                <li><a href="#">TLAC dogs, some PG</a></li>
+                <li><a href="#">TLAC dogs, no-PG(Walk Only)</a></li>
+                <li><a href="#">TLAC dogs, no-Walk, no-PG</a></li>
+                <li><a href="#">TLAC dogs, Walk/PG Unknown</a></li>           
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Custom Filters <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Pick an Easy Little</a></li>
+                <li><a href="#">Pick a BOO! Little</a></li>
+                <li><a href="#">Pick a Blue Little</a></li>
+                <li><a href="#">Pick a Level2/Auth-Reqd Little</a></li>
+                <li class="divider"></li>
+                <li><a href="#">TLAC RTR Dogs</a></li>
+                <li><a href="#">TLAC non-RTR dogs</a></li>
+                <li><a href="#">CGC Trainee</a></li>
+                <li><a href="#">CGC Ready</a></li>
+                <li><a href="#">TLAC dogs, some PG</a></li>
+                <li><a href="#">TLAC dogs, no-PG(Walk Only)</a></li>
+                <li><a href="#">TLAC dogs, no-Walk, no-PG</a></li>
+                <li><a href="#">TLAC dogs, Walk/PG Unknown</a></li>           
+              </ul>
+            </li>
+
+
+          </ul>
+
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input class="form-control" placeholder="Search" type="text">
             </div>
-            <!--
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
 
-             /container 
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-            -->
-            <!--
 
-             Bootstrap core JavaScript
-                ===================…
 
-            -->
-            <!--
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
 
-             Placed at the end of the document so the pages lo…
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/rwd-table.js"></script>
 
-            -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-            <script src="/js/bootstrap.min.js"></script>
-            <!--
-
-             IE10 viewport hack for Surface/desktop Windows 8 …
-
-            -->
-            <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-        </body>
-    </html>
-
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
