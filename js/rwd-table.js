@@ -225,7 +225,10 @@
             this.$displayAllBtn.toggleClass('btn-primary', activate);
 
             if(window.localStorage){
-                localStorage.setItem('DisplayAll', this.$displayAllBtn.hasClass('btn-primary'));
+                if (this.$displayAllBtn.hasClass('btn-primary')) 
+                    localStorage.setItem('DisplayAll', 'checked');
+                else
+                    localStorage.setItem('DisplayAll', 'unchecked');
             }
         }
 
@@ -385,10 +388,21 @@
     ResponsiveTable.prototype.setupHdrCells = function() {
         var that = this;
         var isStorage = false;
-        if(window.localStorage);
-        {
-            isStorage = true;
-        }
+
+        // that.$hdrCells.each(function(i){
+        //     var $th = $(this),
+        //         thText = $th.text();
+
+        //     if(localStorage[thText]){
+        //         if(localStorage[thText] == "checked"){
+        //             $th.css('display','table-cell');
+        //         }
+        //         else
+        //             if(localStorage[thText] == "unchecked"){
+        //             $th.css('display','none');
+        //         }
+        //     }        
+        // })
         
         // for each header column
         that.$hdrCells.each(function(i){
@@ -412,16 +426,21 @@
                 var $toggle = $('<li class="checkbox-row"><input type="checkbox" name="toggle-'+id+'" id="toggle-'+id+'" value="'+id+'" /> <label for="toggle-'+id+'">'+ thText +'</label></li>');
                 var $checkbox = $toggle.find('input');
 
+                if(localStorage[thText]){
+                    if(localStorage[thText] == "checked"){
+                        $th.css('display','table-cell');
+                    }
+                    else
+                        if(localStorage[thText] == "unchecked"){
+                        $th.css('display','none');
+                    }
+                }
+
                 that.$dropdownContainer.append($toggle);
 
                 $toggle.click(function(){
                     $checkbox.prop('checked', !$checkbox.prop('checked'));
                     $checkbox.trigger('change');
-
-                    if(isStorage){
-                        localStorage.setItem(thText, $checkbox.prop('checked'));
-                        // console.log(thText +':'+localStorage.getItem(thText));
-                    }
 
                 });
 
@@ -429,30 +448,34 @@
                 if ($('html').hasClass('lt-ie9')) {
                     $checkbox.click(function() {
                         $(this).trigger('change');
-
-                        if(isStorage){
-                            localStorage.setItem(thText, $checkbox.prop('checked'));
-                        }
-
                     });
                 }
 
+               
                 $toggle.find('label').click(function(event){
                     event.stopPropagation();
                 });
 
                 $toggle.find('input')
-                    .click(function(event){
-                        if(isStorage){
-                            localStorage.setItem(thText, $checkbox.prop('checked'));
-                        }
+                    .click(function(event){                       
                         event.stopPropagation();
                     })
                 .change(function(){ // bind change event on checkbox
+                    // console.log(thText+':here');                    
+
                     var $checkbox = $(this),
                         val = $checkbox.val(),
                         //all cells under the column, including the header and its clone
                         $cells = that.$tableWrapper.find('#' + val + ', #' + val + '-clone, [data-columns~='+ val +']');
+
+                    //caches change in checkboxes in localstorage [column title, checked/unchecked]
+                    if(window.localStorage){
+                        if($checkbox.prop('checked'))
+                            localStorage.setItem(thText, 'checked');
+                        else
+                            localStorage.setItem(thText, 'unchecked');
+                            // console.log(thText +':'+localStorage.getItem(thText));
+                    }
 
                     //if display-all is on - save state and carry on
                     if(that.$table.hasClass('display-all')){
@@ -465,6 +488,9 @@
                         }
                         //switch off button
                         that.$displayAllBtn.removeClass('btn-primary');
+                        if(window.localStorage)
+                            localStorage.setItem('DisplayAll', 'unchecked');
+
                     }
 
                     // loop through the cells
@@ -472,7 +498,7 @@
                         var $cell = $(this);
 
                         // is the checkbox checked now?
-                        if ($checkbox.is(':checked')) {
+                        if ($checkbox.is(':checked')){
 
                             // if the cell was already visible, it means its original colspan was >1
                             // so let's increment the colspan
@@ -534,7 +560,6 @@
 
                     // get column header
                     var $colHdr = that.$tableScrollWrapper.find('#' + that.idPrefix + k);
-
                     // copy data-priority attribute from column header
                     var dataPriority = $colHdr.attr('data-priority');
                     if (dataPriority) { $cell.attr('data-priority', dataPriority); }
@@ -544,7 +569,7 @@
                     }
 
                 }
-
+                console.log(colSpan);
                 // if colSpan is more than 1
                 if(colSpan > 1) {
                     //give it the class 'spn-cell';
