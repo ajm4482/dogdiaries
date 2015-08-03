@@ -6,6 +6,11 @@ h2 {
   padding: 20px 0;
 }
 
+.wrap{
+  width:25px; 
+  word-wrap:break-word;
+}
+
 .table-bordered {
   border: 1px solid #ddd !important;
 }

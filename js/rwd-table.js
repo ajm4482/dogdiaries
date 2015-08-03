@@ -223,6 +223,10 @@
         if(this.$displayAllBtn){
             // add 'btn-primary' class to btn to indicate that display all is activated
             this.$displayAllBtn.toggleClass('btn-primary', activate);
+
+            if(window.localStorage){
+                localStorage.setItem('DisplayAll', this.$displayAllBtn.hasClass('btn-primary'));
+            }
         }
 
         this.$table.toggleClass('display-all', activate);
@@ -380,7 +384,12 @@
     // Setup header cells
     ResponsiveTable.prototype.setupHdrCells = function() {
         var that = this;
-
+        var isStorage = false;
+        if(window.localStorage);
+        {
+            isStorage = true;
+        }
+        
         // for each header column
         that.$hdrCells.each(function(i){
             var $th = $(this),
@@ -397,6 +406,7 @@
                 thText = $th.attr('data-col-name');
             }
 
+            // console.log($th.attr('data-col-name'));
             // create the hide/show toggle for the current column
             if ( $th.is('[data-priority]') ) {
                 var $toggle = $('<li class="checkbox-row"><input type="checkbox" name="toggle-'+id+'" id="toggle-'+id+'" value="'+id+'" /> <label for="toggle-'+id+'">'+ thText +'</label></li>');
@@ -405,15 +415,25 @@
                 that.$dropdownContainer.append($toggle);
 
                 $toggle.click(function(){
-                    // console.log("cliiiick!");
                     $checkbox.prop('checked', !$checkbox.prop('checked'));
                     $checkbox.trigger('change');
+
+                    if(isStorage){
+                        localStorage.setItem(thText, $checkbox.prop('checked'));
+                        // console.log(thText +':'+localStorage.getItem(thText));
+                    }
+
                 });
 
                 //Freakin' IE fix
                 if ($('html').hasClass('lt-ie9')) {
                     $checkbox.click(function() {
                         $(this).trigger('change');
+
+                        if(isStorage){
+                            localStorage.setItem(thText, $checkbox.prop('checked'));
+                        }
+
                     });
                 }
 
@@ -423,6 +443,9 @@
 
                 $toggle.find('input')
                     .click(function(event){
+                        if(isStorage){
+                            localStorage.setItem(thText, $checkbox.prop('checked'));
+                        }
                         event.stopPropagation();
                     })
                 .change(function(){ // bind change event on checkbox
