@@ -163,10 +163,19 @@
             // Add display-all btn to dropdown-btn-group
             this.$dropdownGroup.append(this.$displayAllBtn);
 
+            //localStorage for Display All btn
+            if(window.localStorage){
+                if(localStorage['DisplayAll'] === 'checked'){
+                    this.$table.addClass('display-all');
+                }
+            }
+
             if (this.$table.hasClass('display-all')) {
                 // add 'btn-primary' class to btn to indicate that display all is activated
                 this.$displayAllBtn.addClass('btn-primary');
+                console.log("here");
             }
+
 
             // bind click on display-all btn
             this.$displayAllBtn.click(function(){
@@ -387,23 +396,7 @@
     // Setup header cells
     ResponsiveTable.prototype.setupHdrCells = function() {
         var that = this;
-        var isStorage = false;
 
-        // that.$hdrCells.each(function(i){
-        //     var $th = $(this),
-        //         thText = $th.text();
-
-        //     if(localStorage[thText]){
-        //         if(localStorage[thText] == "checked"){
-        //             $th.css('display','table-cell');
-        //         }
-        //         else
-        //             if(localStorage[thText] == "unchecked"){
-        //             $th.css('display','none');
-        //         }
-        //     }        
-        // })
-        
         // for each header column
         that.$hdrCells.each(function(i){
             var $th = $(this),
@@ -426,15 +419,17 @@
                 var $toggle = $('<li class="checkbox-row"><input type="checkbox" name="toggle-'+id+'" id="toggle-'+id+'" value="'+id+'" /> <label for="toggle-'+id+'">'+ thText +'</label></li>');
                 var $checkbox = $toggle.find('input');
 
-                if(localStorage[thText]){
-                    if(localStorage[thText] == "checked"){
-                        $th.css('display','table-cell');
-                    }
-                    else
-                        if(localStorage[thText] == "unchecked"){
-                        $th.css('display','none');
-                    }
-                }
+                // if(localStorage[thText]){
+                //     if(localStorage[thText] == "checked"){
+                //         $checkbox.prop('checked', true);
+                //         // $th.css('display','table-cell');
+                //     }
+                //     else
+                //         if(localStorage[thText] == "unchecked"){
+                //             $checkbox.prop('checked', false);
+                //         // $th.css('display','none');
+                //     }
+                // }
 
                 that.$dropdownContainer.append($toggle);
 
@@ -569,7 +564,6 @@
                     }
 
                 }
-                console.log(colSpan);
                 // if colSpan is more than 1
                 if(colSpan > 1) {
                     //give it the class 'spn-cell';
@@ -597,6 +591,30 @@
             });
         });
     };
+
+    // ResponsiveTable.prototype.setupHdrCells = function() {
+        
+    //     if(window.localStorage){
+    //         var that = this;
+
+    //         that.$hdrCells.each(function(i){
+    //             var $th = $(this),
+    //                 id = $th.prop('id'),
+    //                 thText = $th.text();
+
+    //             // assign an id to each header, if none is in the markup
+    //             if (!id) {
+    //                 id = that.idPrefix + i;
+    //                 $th.prop('id', id);
+    //             }
+
+    //             if(thText === ''){
+    //                 thText = $th.attr('data-col-name');
+    //             }
+
+    //         }
+    //     }
+    // }
 
     // Update colspan and visibility of spanning cells
     ResponsiveTable.prototype.updateSpanningCells = function() {
