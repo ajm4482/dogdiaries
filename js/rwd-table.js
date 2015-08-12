@@ -592,30 +592,6 @@
         });
     };
 
-    // ResponsiveTable.prototype.setupHdrCells = function() {
-        
-    //     if(window.localStorage){
-    //         var that = this;
-
-    //         that.$hdrCells.each(function(i){
-    //             var $th = $(this),
-    //                 id = $th.prop('id'),
-    //                 thText = $th.text();
-
-    //             // assign an id to each header, if none is in the markup
-    //             if (!id) {
-    //                 id = that.idPrefix + i;
-    //                 $th.prop('id', id);
-    //             }
-
-    //             if(thText === ''){
-    //                 thText = $th.attr('data-col-name');
-    //             }
-
-    //         }
-    //     }
-    // }
-
     // Update colspan and visibility of spanning cells
     ResponsiveTable.prototype.updateSpanningCells = function() {
         var that = this;
