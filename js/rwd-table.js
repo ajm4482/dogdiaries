@@ -173,7 +173,6 @@
             if (this.$table.hasClass('display-all')) {
                 // add 'btn-primary' class to btn to indicate that display all is activated
                 this.$displayAllBtn.addClass('btn-primary');
-                console.log("here");
             }
 
 
@@ -446,6 +445,13 @@
                     });
                 }
 
+                var val = $checkbox.val(),
+                    $cells = that.$tableWrapper.find('#' + val + ', #' + val + '-clone, [data-columns~='+ val +']');
+                console.log(that.$tableWrapper);
+
+
+
+
                
                 $toggle.find('label').click(function(event){
                     event.stopPropagation();
@@ -462,7 +468,8 @@
                         val = $checkbox.val(),
                         //all cells under the column, including the header and its clone
                         $cells = that.$tableWrapper.find('#' + val + ', #' + val + '-clone, [data-columns~='+ val +']');
-
+                        console.log(' ');
+                        console.log(that.$tableWrapper);
                     //caches change in checkboxes in localstorage [column title, checked/unchecked]
                     if(window.localStorage){
                         if($checkbox.prop('checked'))
